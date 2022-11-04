@@ -1,0 +1,70 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>509dff70-3927-4114-86c3-4fc708b82f0d</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>movingavg\code\MAP_2\Output\Engine.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>DS_Project_002</Name>
+    <RootNamespace>DS_Project_002</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="movingavg\code\MAP_2\MLPipeline\Config.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="movingavg\code\MAP_2\MLPipeline\EDA.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="movingavg\code\MAP_2\MLPipeline\MovingAverage.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="movingavg\code\MAP_2\MLPipeline\Resampling.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="movingavg\code\MAP_2\Output\Engine.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="movingavg\" />
+    <Folder Include="movingavg\.ipynb_checkpoints\" />
+    <Folder Include="movingavg\bin\" />
+    <Folder Include="movingavg\code\" />
+    <Folder Include="movingavg\code\.ipynb_checkpoints\" />
+    <Folder Include="movingavg\code\MAP_2\" />
+    <Folder Include="movingavg\code\MAP_2\Input\" />
+    <Folder Include="movingavg\code\MAP_2\MLPipeline\" />
+    <Folder Include="movingavg\code\MAP_2\Output\" />
+    <Folder Include="movingavg\code\MAP_2\Notebooks\" />
+    <Folder Include="movingavg\etc\" />
+    <Folder Include="movingavg\lib\" />
+    <Folder Include="movingavg\share\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="movingavg\code\MAP_2\Notebooks\MovingAverage.ipynb" />
+    <Content Include="movingavg\code\MAP_2\Output\readme.md" />
+    <Content Include="movingavg\code\MAP_2\Output\requirements.txt" />
+    <Content Include="movingavg\share\.gitignore" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
