@@ -1,7 +1,11 @@
+import sys; print(sys.path)
+sys.path.append(r"\Users\Owner\pyproj\DS_Project_002")
+
 from movingavg.code.MAP_2.MLPipeline.EDA import EDA
 from movingavg.code.MAP_2.MLPipeline.MovingAverage import MovingAverage
 from movingavg.code.MAP_2.MLPipeline.Resampling import Resampling
 import pandas as pd
+
 
 # Loading the dataset
 df = pd.read_csv("movingavg/code/MAP_2/Input/Data-Chillers.csv")

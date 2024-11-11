@@ -8,6 +8,7 @@ from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import boxcox
 from .Config import  IOConfig
 
+
 # create a class for resampling the data
 class Resampling(IOConfig):
 
