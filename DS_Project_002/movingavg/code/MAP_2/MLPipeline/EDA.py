@@ -17,7 +17,7 @@ class EDA(IOConfig):
         print(self.series.shape)
 
         ####  Querying By Time
-        print(self.series["2017-08-30"])
+        print(self.series.loc["2017-08-30"])
 
         #### Descriptive Statistic
         print(self.series.describe())

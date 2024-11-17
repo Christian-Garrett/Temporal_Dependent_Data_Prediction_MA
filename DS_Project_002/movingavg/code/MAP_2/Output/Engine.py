@@ -1,14 +1,18 @@
-import sys; print(sys.path)
-sys.path.append(r"\Users\Owner\pyproj\DS_Project_002")
+from pathlib import Path
+import sys
+import os
 
-from movingavg.code.MAP_2.MLPipeline.EDA import EDA
-from movingavg.code.MAP_2.MLPipeline.MovingAverage import MovingAverage
-from movingavg.code.MAP_2.MLPipeline.Resampling import Resampling
+module_path = Path(__file__).parents[1]
+sys.path.append(str(module_path))
+
+from MLPipeline.EDA import EDA
+from MLPipeline.MovingAverage import MovingAverage
+from MLPipeline.Resampling import Resampling
 import pandas as pd
 
 
 # Loading the dataset
-df = pd.read_csv("movingavg/code/MAP_2/Input/Data-Chillers.csv")
+df = pd.read_csv(os.path.join(module_path, "Input/Data-Chillers.csv"))
 
 # Convert the time from string to date format
 df.time = pd.to_datetime(df.time, format='%d-%m-%Y %H:%M')
