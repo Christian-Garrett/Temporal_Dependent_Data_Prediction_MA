@@ -4,7 +4,6 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 from .Config import IOConfig
 
-# create a class for performing EDA
 class EDA(IOConfig):
     """
     A class used to perform the exploratory data analysis.
@@ -14,7 +13,12 @@ class EDA(IOConfig):
     """
     
     def __init__(self, time_series):
-        
+        """
+        Initializes the EDA object.
+
+        Parameters:
+            time_series (df): Input time series sensor data.
+        """
         self.series = time_series
 
         print(self.series.head())
@@ -27,6 +31,16 @@ class EDA(IOConfig):
 
 
     def date_refactor(self):
+        """
+        Create a dataframe to isolate important time attributes.
+
+        Parameters:
+            time_series (df): Input time series sensor data.
+
+        Returns:
+            df: A dataframe with a column for each month, day, hour and 
+            sensor value.
+        """     
         df = pd.DataFrame()
         df['month'] = [self.series.index[i].month for i in
                        range(len(self.series))]  # Extract month
@@ -44,7 +58,10 @@ class EDA(IOConfig):
     
 
     def RunEDA(self):
+        """
+        Run the EDA section of the data pipeline.
 
+        """
         date_info_df = self.date_refactor()
 
         print(date_info_df.columns)
@@ -53,14 +70,13 @@ class EDA(IOConfig):
             plt.title(str(col).upper()+" Distribution")
             plt.xticks(rotation=45)
             plt.savefig(f"{self.output_folder}+{col}.png")
-            # plt.show()  #use this in notebook files
             plt.close()
 
-        ## making the data one dimensional for GROUPER
+        # Make the data one dimensional for GROUPER
         data = pd.DataFrame(columns=["Sensor_Value"],data=self.series["Sensor_Value"])
         print(data.head(3))
 
-        # Getting the months distribution of sensory data
+        # Get the months distribution of sensory data
         groups = data.groupby(pd.Grouper(freq='M'))
         weeks = pd.DataFrame()
         for name, group in groups:
@@ -71,33 +87,28 @@ class EDA(IOConfig):
 
         weeks.plot(subplots=True,legend=True, figsize=(25, 25) )
         plt.savefig(f"{self.output_folder}+Each Month Distribution.png")
-        # plt.show() #use this in notebook files
         plt.close()
 
         # Histogram Plot For Distribution
         self.series.hist(figsize=(20, 10))
         plt.savefig(f"{self.output_folder}+Histogram of all columns.png")
-        # plt.show() #use this in notebook files
         plt.close()
 
         # Density Plots
         self.series.plot(kind='kde', figsize=(20, 10))
         plt.savefig(f"{self.output_folder}+Density Plots.png")
-        # plt.show() #use this in notebook files
         plt.close()
 
         pd.plotting.lag_plot(data)
         plt.savefig(f"{self.output_folder}+Lag Plot.png")
-        # plt.show() #use this in notebook files
         plt.close()
 
-        #### QQPlot
+        # QQPlot
         sm.qqplot(data["Sensor_Value"])
         plt.savefig(f"{self.output_folder}+QQPlot.png")
-        # plt.show() #use this in notebook files
         plt.close()
 
-        #### checking for missing values in predictor variable ( Sensor_Value)
-        print(data["Sensor_Value"].isna().sum()) #there are no missing values
+        # Check for missing values in predictor variable (Sensor_Value)
+        print(data["Sensor_Value"].isna().sum())
 
         print("This completes EDA")
