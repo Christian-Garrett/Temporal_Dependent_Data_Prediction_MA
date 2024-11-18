@@ -24,12 +24,12 @@ df.set_index("time", inplace=True)
 eda = EDA(df)
 eda.RunEDA()
 
-# Perform Resampling on data
+'''# Perform resampling on data
 resampling = Resampling(df)
 resampling.RunResampling()
 
 # Perform moving average smoothing
 movingaverage = MovingAverage(df)
-movingaverage.RunMovingAverage()
+movingaverage.RunMovingAverage()'''
 
 print("Completed Moving Average")
