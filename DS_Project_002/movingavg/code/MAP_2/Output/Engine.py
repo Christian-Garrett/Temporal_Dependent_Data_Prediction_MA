@@ -22,14 +22,14 @@ df.set_index("time", inplace=True)
 
 # Perfrom Exploratory Data Analysis(EDA)
 eda = EDA(df)
-eda.RunEDA()
+eda.run_EDA()
 
-'''# Perform resampling on data
+# Perform resampling on data
 resampling = Resampling(df)
-resampling.RunResampling()
+resampling.run_resampling()
 
 # Perform moving average smoothing
 movingaverage = MovingAverage(df)
-movingaverage.RunMovingAverage()'''
+movingaverage.run_movingaverage()
 
 print("Completed Moving Average")

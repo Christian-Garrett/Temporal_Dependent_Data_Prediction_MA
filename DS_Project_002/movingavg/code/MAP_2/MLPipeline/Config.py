@@ -6,14 +6,21 @@ import os
 module_path = Path(__file__).parents[1]
 sys.path.append(str(module_path))
 
+
 class IOConfig:
     """
     A class used to configure the pipeline modules.
+    ...
 
-    Attributes:
-        data_folder (str): The input data file.
-        output_folder (str): The output file location.
-        time_series (df): The input dataframe with sensor and error values.
+    Attributes
+    ----------
+    data_folder : str
+        The input data file.
+    output_folder : str
+        The output file location.
+    time_series : df
+        The input dataframe with sensor and error values.
+
     """
 
     data_folder = os.path.join(module_path, "Input/Data-Chillers.csv")

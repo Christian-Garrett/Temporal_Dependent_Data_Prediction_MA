@@ -7,18 +7,33 @@ from .Config import IOConfig
 class EDA(IOConfig):
     """
     A class used to perform the exploratory data analysis.
+    ...
 
-    Attributes:
-        time_series (df): The input dataframe with sensor and error values.
+    Attributes
+    ----------
+    series : df
+        Time series input dataframe with sensor and error values.
+
+    Methods
+    -------
+    date_refactor()
+        Create a dataframe to isolate important time attributes.
+    run_EDA()
+        Run the EDA section of the data pipeline.
+
     """
     
     def __init__(self, time_series):
         """
         Initializes the EDA object.
 
-        Parameters:
-            time_series (df): Input time series sensor data.
+        Parameters
+        ----------
+        time_series : df
+            Input time series sensor data.
+            
         """
+
         self.series = time_series
 
         print(self.series.head())
@@ -30,17 +45,18 @@ class EDA(IOConfig):
         print(self.series.describe())  # Descriptive Statistics
 
 
-    def date_refactor(self):
+    def date_refactor(self): 
         """
         Create a dataframe to isolate important time attributes.
 
-        Parameters:
-            time_series (df): Input time series sensor data.
-
-        Returns:
-            df: A dataframe with a column for each month, day, hour and 
+        Returns
+        -------
+        df
+            A dataframe with a column for each month, day, hour and 
             sensor value.
-        """     
+            
+        """
+
         df = pd.DataFrame()
         df['month'] = [self.series.index[i].month for i in
                        range(len(self.series))]  # Extract month
@@ -54,13 +70,14 @@ class EDA(IOConfig):
         print("Years present: \t", set([self.series.index[i].year for i in
                                         range(len(self.series))]))
         print(df.head())
+
         return df
     
 
-    def RunEDA(self):
+    def run_EDA(self):
         """
-        Run the EDA section of the data pipeline.
-
+        Run the EDA section of the pipeline.
+            
         """
         date_info_df = self.date_refactor()
 
