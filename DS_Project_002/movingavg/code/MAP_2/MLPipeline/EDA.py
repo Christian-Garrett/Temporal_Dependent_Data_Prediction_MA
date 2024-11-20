@@ -29,7 +29,7 @@ class EDA(IOConfig):
 
         Parameters
         ----------
-        time_series : df
+        series : df
             Input time series sensor data.
             
         """

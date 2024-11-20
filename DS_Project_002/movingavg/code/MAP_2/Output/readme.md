@@ -1,12 +1,7 @@
 # Time Series
 
-Time series is a sequence of information which attaches a time period to each value.
-The value can be pretty much anything measurable.
-It depends on time in some way, like prices, humidity or number of people.
-As long as the values we record are unambiguous, any medium could be measured with Time series.
-There aren't any limitations regarding the total time span of our Time series.
-It could be a minute, a day, a month or even a century.
-All we need is a starting and an ending point.
+Time series is a sequence of information which attaches a time period to each value,
+such as prices, humidity or number of people.
 
 ## Moving Average 
 
@@ -16,12 +11,12 @@ A moving average is a calculation used to analyze data points by creating averag
 - Calculating a moving average involves creating a new series where the values are comprised of the average of raw observations in the original time series
 - Calculating a moving average of a time series takes some assumptions on data. 
 - It is assumed that both trend and seasonal components have been removed from your data.
-- This means that your time series is stationary, or does not show obvious trends (long-term increasing or decreasing movement) or seasonality (consistent periodic structure).
+- This means that the time series is stationary, or does not show obvious trends (long-term increasing or decreasing movement) or seasonality (consistent periodic structure).
 - This repository contains the code files for moving average prediciton on a time series data.
 
 ## Basics
 
--  Chronological Data
+- Chronological Data
 - Cannot be shuffled
 - Each row indicate specific time record
 - Train – Test split happens chronologically
@@ -77,4 +72,3 @@ There are two ways to execute the end to end flow.
 ### IPython Google Colab
 
 Follow the instructions in the notebook `MovingAverage.ipynb`
-
