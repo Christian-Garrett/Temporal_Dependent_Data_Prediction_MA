@@ -39,6 +39,7 @@ def get_moving_average_preds(self):
     history = [data_vals[i] for i in range(window_size)]
     test = [data_vals[i] for i in range(window_size, len(data_vals))]
     predictions = list()
+    
     # walk forward over time steps in test
     for t in range(len(test)):
         length = len(history)

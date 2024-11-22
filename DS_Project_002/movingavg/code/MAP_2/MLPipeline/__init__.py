@@ -50,7 +50,7 @@ class DataPipeline:
     def __init__(self, data_path, output_path="Output/"):
 
         self.output_folder=os.path.join(module_path, output_path)
-        self.data_folder=os.path.join(module_path, data_path)
+        self.data_folder=data_path
         self.time_series = pd.read_csv(self.data_folder,
                                        dayfirst=True,
                                        header=0, 
